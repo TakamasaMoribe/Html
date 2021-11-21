@@ -11,9 +11,33 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+  
+        get()
     }
 
 
+    
+    func get(){
+        let url = URL(string: "https://www.gsi.go.jp/kihonjohochousa/kihonjohochousa41140.html")!
+        
+        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+            guard let data = data else { return }
+            for encoding: String.Encoding in [.utf8, .japaneseEUC, .shiftJIS] {
+                if let text = String(data: data, encoding: encoding) {
+                    print(text)
+                    break
+                }
+            }
+        }
+
+        
+        
+        task.resume()
+    }
+
+    
+    
+
+    
 }
 
