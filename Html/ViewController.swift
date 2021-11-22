@@ -1,7 +1,7 @@
 //
 //  ViewController.swift
 //  Html
-//
+//　URLを入れるとHTMLファイルの内容が表示される
 //  Created by 森部高昌 on 2021/11/21.
 //
 
@@ -18,7 +18,8 @@ class ViewController: UIViewController {
 
     
     func get(){
-        let url = URL(string: "https://www.gsi.go.jp/kihonjohochousa/kihonjohochousa41140.html")!
+        // ここにURLを入れるとHTMLファイルの内容が表示される
+        let url = URL(string:"https://www.gsi.go.jp/kihonjohochousa/kihonjohochousa41140.html")!
         
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
             guard let data = data else { return }
