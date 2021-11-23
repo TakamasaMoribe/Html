@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import Alamofire
+import Kanna
+
 
 class ViewController: UIViewController {
 
@@ -20,6 +23,10 @@ class ViewController: UIViewController {
     func get(){
         // ここにURLを入れるとHTMLファイルの内容が表示される
         let url = URL(string:"https://www.gsi.go.jp/kihonjohochousa/kihonjohochousa41140.html")!
+
+//        let url = URL(string:"https://maps.gsi.go.jp/#5/36.104611/140.084556/&base=std&ls=std&disp=1&vs=c1j0h0k0l0u0t0z0r0s0m0f1")!
+        //https://maps.gsi.go.jp/#5/36.104611/140.084556/&base=std&ls=std&disp=1&vs=c1j0h0k0l0u0t0z0r0s0m0f1
+        
         
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
             guard let data = data else { return }
